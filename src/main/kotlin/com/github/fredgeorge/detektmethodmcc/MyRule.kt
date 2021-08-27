@@ -1,4 +1,4 @@
-package org.example.detekt
+package com.github.fredgeorge.detektmethodmcc
 
 import io.gitlab.arturbosch.detekt.api.CodeSmell
 import io.gitlab.arturbosch.detekt.api.Config
