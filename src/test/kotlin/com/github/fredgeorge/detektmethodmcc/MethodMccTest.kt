@@ -2,8 +2,9 @@ package com.github.fredgeorge.detektmethodmcc
 
 import io.gitlab.arturbosch.detekt.api.Config
 import io.gitlab.arturbosch.detekt.test.compileAndLint
-import org.assertj.core.api.Assertions.assertThat
-import org.junit.Test
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.Test
 
 internal class MethodMccTest {
 
@@ -14,8 +15,9 @@ internal class MethodMccTest {
         inner class B
       }
       """
-    val findings = MethodMccRule(Config.empty).compileAndLint(code)
-    assertThat(findings).hasSize(1)
+    MethodMccRule(Config.empty).compileAndLint(code).also { findings ->
+        assertEquals(1, findings.size)
+    }
   }
 
   @Test
@@ -25,7 +27,8 @@ internal class MethodMccTest {
         class B
       }
       """
-    val findings = MethodMccRule(Config.empty).compileAndLint(code)
-    assertThat(findings).isEmpty()
+    MethodMccRule(Config.empty).compileAndLint(code).also { findings ->
+        assertTrue(findings.isEmpty())
+    }
   }
 }
