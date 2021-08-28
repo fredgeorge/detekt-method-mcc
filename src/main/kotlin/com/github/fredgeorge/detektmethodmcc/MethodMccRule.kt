@@ -9,12 +9,12 @@ import io.gitlab.arturbosch.detekt.api.Rule
 import io.gitlab.arturbosch.detekt.api.Severity
 import org.jetbrains.kotlin.psi.KtClass
 
-class MyRule(config: Config) : Rule(config) {
+class MethodMccRule(config: Config) : Rule(config) {
   override val issue = Issue(
     javaClass.simpleName,
     Severity.CodeSmell,
-    "Custom Rule",
-    Debt.FIVE_MINS,
+    "Method MCC Rule",
+    Debt.TWENTY_MINS,
   )
 
   override fun visitClass(klass: KtClass) {

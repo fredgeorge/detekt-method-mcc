@@ -5,7 +5,7 @@ import io.gitlab.arturbosch.detekt.test.compileAndLint
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
 
-internal class CustomRuleSpec {
+internal class MethodMccTest {
 
   @Test
   fun `reports inner classes`() {
@@ -14,7 +14,7 @@ internal class CustomRuleSpec {
         inner class B
       }
       """
-    val findings = MyRule(Config.empty).compileAndLint(code)
+    val findings = MethodMccRule(Config.empty).compileAndLint(code)
     assertThat(findings).hasSize(1)
   }
 
@@ -25,7 +25,7 @@ internal class CustomRuleSpec {
         class B
       }
       """
-    val findings = MyRule(Config.empty).compileAndLint(code)
+    val findings = MethodMccRule(Config.empty).compileAndLint(code)
     assertThat(findings).isEmpty()
   }
 }
