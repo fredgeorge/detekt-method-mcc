@@ -11,7 +11,7 @@ class FredMetricsRuleSetProvider : RuleSetProvider {
     return RuleSet(
       ruleSetId,
       listOf(
-        MethodMccRule(config),
+        MethodMcc(config),
       ),
     )
   }
