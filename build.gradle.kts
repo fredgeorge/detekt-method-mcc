@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.5.21"
-    `maven-publish`
+//    `maven-publish`
 
     // Apply the java-library plugin for API and implementation separation.
     `java-library`
@@ -42,10 +42,10 @@ tasks.withType<KotlinCompile>() {
     kotlinOptions.jvmTarget = "16"
 }
 
-publishing {
-    publications {
-        create<MavenPublication>("mavenJava") {
-            from(components["java"])
-        }
-    }
-}
+//publishing {
+//    publications {
+//        create<MavenPublication>("mavenJava") {
+//            from(components["java"])
+//        }
+//    }
+//}
