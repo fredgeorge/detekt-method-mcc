@@ -6,7 +6,6 @@ import org.jetbrains.kotlin.com.intellij.openapi.util.Key
 import org.jetbrains.kotlin.com.intellij.util.keyFMap.KeyFMap
 import org.jetbrains.kotlin.resolve.BindingContext
 import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 
 internal class MethodMccTest {
@@ -32,7 +31,10 @@ internal class MethodMccTest {
         val processor = MethodMccProcessor()
         processor.onProcess(ktFile, BindingContext.EMPTY)
         processor.onFinish(listOf(ktFile), result, BindingContext.EMPTY)
-        assertEquals(1, result.metrics.size)
+        assertEquals(3, result.metrics.size)
+        assertEquals(175, result.metrics[0].value)  // value scaled by 100
+        assertEquals(2, result.metrics[1].value)
+        assertEquals(3, result.metrics[2].value)
     }
 
     private val result = object : Detektion {
