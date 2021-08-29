@@ -2,16 +2,18 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.5.21"
-//    `maven-publish`
+    `maven-publish`
 
+    id("io.gitlab.arturbosch.detekt").version("1.18.0")
     // Apply the java-library plugin for API and implementation separation.
     `java-library`
 }
 
 group = "com.github.fredgeorge.detektmethodmcc"
-version = "1.0-SNAPSHOT"
+version = "1.0"
 
 repositories {
+    mavenLocal()
     mavenCentral()
 }
 
@@ -42,10 +44,10 @@ tasks.withType<KotlinCompile>() {
     kotlinOptions.jvmTarget = "16"
 }
 
-//publishing {
-//    publications {
-//        create<MavenPublication>("mavenJava") {
-//            from(components["java"])
-//        }
-//    }
-//}
+publishing {
+    publications {
+        create<MavenPublication>("mavenJava") {
+            from(components["java"])
+        }
+    }
+}

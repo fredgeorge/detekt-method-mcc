@@ -2,8 +2,6 @@ package com.github.fredgeorge.detektmethodmcc
 
 import io.github.detekt.test.utils.compileContentForTest
 import io.gitlab.arturbosch.detekt.api.*
-import io.gitlab.arturbosch.detekt.test.assertThat
-import io.gitlab.arturbosch.detekt.test.compileAndLint
 import org.jetbrains.kotlin.com.intellij.openapi.util.Key
 import org.jetbrains.kotlin.com.intellij.util.keyFMap.KeyFMap
 import org.jetbrains.kotlin.resolve.BindingContext
@@ -61,6 +59,7 @@ internal class MethodMccTest {
     }
 
     // The following is a valid class whose text representation is pasted above
+    @Suppress("UnusedPrivateClass")
     private class A(private val flag: Boolean) {
         fun z(): String {
             return if (flag) "true" else "false"
